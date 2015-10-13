@@ -6,22 +6,11 @@ namespace ModuleThreeAssignment
     {
         static void Main(string[] args)
         {
-            //// Degree Attributes
-            //string degreeName;
-            //string degreeDescription;
-            //string degreeType;
-
-            //// Program Attributes
-            //string programName;
-            //string programDescription;
-            //string programSchool;
-
-            //// Course Attributes
-            //string courseName;
-            //string courseDescription;
-            //string courseInstructor;
-
             GetStudentInformation();
+            GetTeacherInformation();
+            GetDegreeInformation();
+            GetProgramInformation();
+            GetCourseInformation();
             validateDate(DateTime.Parse("05/07/1984"));
             Console.ReadKey();
         }
@@ -50,7 +39,7 @@ namespace ModuleThreeAssignment
             string lastName = Console.ReadLine();
             Console.WriteLine("Enter the teacher's birth date: ");
             DateTime birthDate = DateTime.Parse(Console.ReadLine());
-            PrintTeacherDetails(firstName, lastName, birthDate.ToString());
+            PrintTeacherDetails(firstName, lastName, birthDate.ToString("d"));
         }
 
         static void PrintTeacherDetails(string first, string last, string birthday)
@@ -92,16 +81,23 @@ namespace ModuleThreeAssignment
 
         static void GetCourseInformation()
         {
-            Console.WriteLine("Enter the course's name");
+            Console.WriteLine("Enter the course's name: ");
+            string courseName = Console.ReadLine();
+            Console.WriteLine("Enter the course's description: ");
+            string courseDescription = Console.ReadLine();
+            Console.WriteLine("Enter the course's instructor: ");
+            string courseInstructor = Console.ReadLine();
+            PrintCourseInformation(courseName, courseDescription, courseInstructor);
         }
+
+        static void PrintCourseInformation(string name, string description, string instructor)
+        {
+            Console.WriteLine("The course {0} is {1} and the instructor is {1}", name, description, instructor);
+        }
+
         static string validateDate(DateTime date)
         {
             throw new NotImplementedException();
-        }
-
-        static string validateDateChallenge(DateTime date)
-        {
-
         }
     }
 }
